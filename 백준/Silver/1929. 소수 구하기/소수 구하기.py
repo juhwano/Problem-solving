@@ -3,14 +3,20 @@
 # 소수를 구하는 방법
 # 1. 2부터 n-1까지 모두 나눠서 나눠지는 수가 없으면 소수이다. (시간 초과)
 # 2. 2부터 n의 제곱근까지만 나눠서 나눠지는 수가 없으면 소수이다. (에라토스테네스의 체)
-N, M = map(int, input().split()) # 사용자로부터 두 개의 숫자 입력받아 N과 M에 저장
+import sys
+M, N = map(int, sys.stdin.readline().split())  # 사용자로부터 두 개의 숫자를 입력받아 M과 N에 저장
 
-for i in range(N, M+1): # N부터 M까지의 모든 숫자 반복
-    if i == 1:  # 1은 소수가 아니므로 통과
-        continue
 
-    for j in range(2, int(i**0.5) + 1):  # 2 ~ 제곱근 사이 값 i가 소수인지 확인
-        if i % j == 0:  # 나누어 떨어진다면 그대로 종료 (else문 실행 X)
-            break
-    else:  # for문이 잘 실행이 되었다면 print(i) 출력
-        print(i)
+def eratosthenes(num):  # 소수 판별 함수
+    if num == 1:  # 1은 소수가 아니므로 False 반환
+        return False
+    else:  # num을 2부터 num의 제곱근까지의 모든 숫자로 나눈다. 어떤 숫자로 나눠떨어진다면 num은 소수가 아니므로 False 반환
+        for i in range(2, int(num**0.5) + 1):
+            if num % i == 0:
+                return False
+        return True  # num이 소수인 경우
+
+
+for i in range(M, N + 1):
+    if eratosthenes(i):
+        print(i)  # 소수인 경우 출력
