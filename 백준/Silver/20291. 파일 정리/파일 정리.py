@@ -1,8 +1,11 @@
-file = {}
-N = int(input())
-for _ in range(N):
-    extension = input().split('.')[1]
-    file[extension] = file.get(extension, 0) + 1
+import sys
 
-for (key, value) in sorted(file.items()):
-    print("{} {}".format(key, value))
+input = sys.stdin.readline
+
+n, file = int(input()), {}
+for i in range(n):
+    filename = input().split()[0].split('.')[1]
+    file[filename] = file.get(filename, 0) + 1
+
+for value in sorted(file.items()):
+    print(value[0], value[1])
