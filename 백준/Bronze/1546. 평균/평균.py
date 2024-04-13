@@ -1,8 +1,8 @@
-N = int(input())
-grade_list = list(map(int, input().split()))
-high_grade = max(grade_list)
+n = int(input())
+score_list = list(map(int, input().split()))
+max_score = max(score_list)
 
-for i, grade in enumerate(grade_list):
-    grade_list[i] = grade / high_grade * 100
+for i in range(n):
+  score_list[i] = score_list[i] / max_score * 100
 
-print(sum(grade_list) / N)
+print(sum(score_list)/n)
