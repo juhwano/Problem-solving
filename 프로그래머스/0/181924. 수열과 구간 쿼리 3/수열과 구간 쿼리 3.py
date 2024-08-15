@@ -1,8 +1,6 @@
 def solution(arr, queries):
     
-    for i in range(len(queries)):
-        k,v = queries[i]
-        arr[k], arr[v] = arr[v], arr[k]
+    for a,b in queries:
+        arr[a], arr[b] = arr[b], arr[a]
     
-    answer = arr
-    return answer
+    return arr
