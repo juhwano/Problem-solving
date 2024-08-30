@@ -1,6 +1,7 @@
 def solution(my_strings, parts):
-    answer = ''
+    answer = []
     for string, part in zip(my_strings, parts):
-        answer += string[part[0]:part[1]+1]
+        answer.append(string[part[0]:part[1]+1])
+    answer = ''.join(answer)
     
     return answer
