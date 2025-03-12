@@ -1,14 +1,13 @@
-import sys
-input = sys.stdin.readline
+n = int(input())
+array_list = list(map(int, input().split()))
 
-N = input()
-numbers = list(map(int,input().split()))
-max = -sys.maxsize - 1  # 가능한 가장 작은 수로 초기화
-min = sys.maxsize  # 가능한 가장 큰 수로 초기화
-for number in numbers:
-    if number > max:
-        max = number
-    if number < min:
-        min = number
+max_num = array_list[0]
+min_num = array_list[0]
 
-print(str(min) + ' ' + str(max))
+for num in array_list:
+    if num < min_num:
+        min_num = num
+    if num > max_num:
+        max_num = num
+
+print(min_num, max_num)
